@@ -25,13 +25,13 @@ const emit = defineEmits(["cookieAccepted", "cookieDeclined"]);
 
 const handleCookieDecision = (cookieAccepted: boolean) => {
   if (cookieAccepted) {
-    console.log("Cookies accepted");
     localStorage.setItem("acceptedCookie", "true");
     emit("cookieAccepted");
+    console.log("Cookies accepted");
   } else {
-    console.log("Cookies declined");
     localStorage.setItem("acceptedCookie", "false");
     emit("cookieDeclined");
+    console.log("Cookies declined");
   }
 };
 
@@ -47,8 +47,10 @@ onMounted(() => {
   const cookieState = localStorage.getItem("acceptedCookie");
   if (cookieState === "true") {
     emit("cookieAccepted");
+    console.log("Cookies was already accepted");
   } else if (cookieState === "false") {
     emit("cookieDeclined");
+    console.log("Cookies was already declined");
   }
   document.addEventListener("keypress", handleKeyPress);
 });

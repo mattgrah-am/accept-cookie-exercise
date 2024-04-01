@@ -33,12 +33,8 @@
 <script setup lang="ts">
 import CookieNotice from "./components/CookieNotice.vue";
 import WarningModal from "./components/WarningModal.vue";
-import { ref, watch } from "vue";
+import { ref } from "vue";
 
 const showWarning = ref(false);
 const cookieState = ref(false);
-
-watch(cookieState, (newCookieState) => {
-  console.log(newCookieState);
-});
 </script>
